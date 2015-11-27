@@ -5,7 +5,7 @@ const utils = {};
 
 let running = false;
 
-(function wait () {
+window.raf = (function () {
   if (window.requestAnimationFrame) return window.requestAnimationFrame;
 
   return function (cb) {
@@ -27,11 +27,11 @@ utils.throttle = function (cb) {
     if (running) return;
     running = true;
 
-    wait(() => {
+    window.raf(() => {
       cb.apply();
       running = false;
     });
   };
-}
+};
 
 export default utils;
