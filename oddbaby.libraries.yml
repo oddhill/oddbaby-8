@@ -1,0 +1,10 @@
+oddbaby:
+  css:
+    theme:
+      dist/css/main.css
+      dist/css/print.css: { media: print }
+  js:
+    theme:
+      dist/js/bundle.js
+  dependencies:
+    - core/jquery

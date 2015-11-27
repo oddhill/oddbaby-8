@@ -1,0 +1,18 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "parser": "babel-eslint",
+  "extends": "airbnb/base",
+  "globals": {
+    "Drupal"
+  },
+  "rules": {
+    "comma-dangle": [2, "never"],
+    "id-length": [2, { "min": 1 }],
+    "func-names": [0],
+    "space-before-function-paren": [2, {"anonymous": "always", "named": "never"}],
+    "object-shorthand": [2, "always"]
+  }
+}
