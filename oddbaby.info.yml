@@ -6,3 +6,6 @@ regions:
   header: header
   content: Content
   footer: Footer
+
+libraries-extend:
+  core/modernizr: false
