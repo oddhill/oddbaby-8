@@ -10,7 +10,7 @@ import utils from 'lib/utils';
   });
 
   // Run when DOM is changed
-  Drupal.behaviors.ODDBABY = {
+  Drupal.behaviors.oddbaby = {
     attach() {
 
     }
