@@ -7,5 +7,8 @@ regions:
   content: Content
   footer: Footer
 
-libraries-extend:
+libraries:
+  - oddbaby/global
+
+libraries-override:
   core/modernizr: false
