@@ -4,7 +4,7 @@ core: 8.x
 version: 0.1.0
 
 regions:
-  header: header
+  header: Header
   content: Content
   footer: Footer
 
