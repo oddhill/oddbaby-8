@@ -2,7 +2,6 @@ var gulp = require('gulp')
 var sass = require('gulp-sass')
 var eslint = require('gulp-eslint')
 var scsslint = require('gulp-scss-lint')
-var svg2png = require('gulp-svg2png')
 var browserify = require('browserify')
 var shim = require('browserify-shim')
 var babelify = require('babelify')
@@ -28,13 +27,6 @@ gulp.task('browserify', function () {
     })
     .pipe(source('bundle.js'))
     .pipe(gulp.dest('./dist/js'))
-})
-
-// svg2png
-gulp.task('svg2png', function () {
-  gulp.src('./graphics/**/*.svg')
-    .pipe(svg2png())
-    .pipe(gulp.dest('./graphics'))
 })
 
 // Compile sass

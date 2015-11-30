@@ -16,7 +16,6 @@
     "gulp-eslint": "^1.0.0",
     "gulp-sass": "^2.0.4",
     "gulp-scss-lint": "^0.3.3",
-    "gulp-svg2png": "^0.3.0",
     "vinyl-source-stream": "^1.1.0"
   },
   "scripts": {
