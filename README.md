@@ -10,7 +10,7 @@ bower install
 
 Gulp tasks:
 ```
-// Watch .scss (scss-lint, sass) and .js (jshint, browserify)
+// Watch .scss (scss-lint, sass) and .js (eslint, browserify)
 $ gulp watch
 
 // Convert svg files to png
