@@ -2,3 +2,4 @@
 .sass-cache
 node_modules
 bower_components
+scss/utils/_breakpoints.scss

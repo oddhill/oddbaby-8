@@ -7,6 +7,8 @@ var shim = require('browserify-shim')
 var babelify = require('babelify')
 var cssGlobbing = require('gulp-css-globbing')
 var source = require('vinyl-source-stream')
+var drupalBreakpoints = require('drupal-breakpoints-scss')
+var rename = require('gulp-rename')
 
 // babel
 gulp.task('browserify', function () {
@@ -29,6 +31,12 @@ gulp.task('browserify', function () {
 
 // Compile sass
 gulp.task('sass', function () {
+  // Generate _breakpoints.scss
+  gulp.src('./oddbaby.breakpoints.yml')
+    .pipe(drupalBreakpoints.ymlToScss())
+    .pipe(rename('_breakpoints.scss'))
+    .pipe(gulp.dest('./scss/utils'))
+
   return gulp.src(['./scss/main.scss', './scss/print.scss'])
     .pipe(cssGlobbing({
       extensions: ['.scss']

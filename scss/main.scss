@@ -5,7 +5,7 @@
 @import 'bourbon';
 
 // Import our variables, mixins & helpers
-@import 'utils/variables', 'utils/mixins', 'utils/helpers';
+@import 'utils/variables', 'utils/mixins', 'utils/helpers', 'utils/breakpoints';
 
 // Neat should be imported after variable, reset and mixin declaration.
 @import 'neat';
