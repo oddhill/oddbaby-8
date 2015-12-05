@@ -43,10 +43,10 @@ gulp.task('sass', function () {
     }))
     .pipe(sass({
       includePaths: [
-        'bower_components/bourbon/app/assets/stylesheets',
-        'bower_components/neat/app/assets/stylesheets',
-        'bower_components/stratagem',
-        'bower_components/normalize-css/'
+        'node_modules/bourbon/app/assets/stylesheets/',
+        'node_modules/bourbon-neat/app/assets/stylesheets/',
+        'node_modules/normalize.css/',
+        'node_modules/Stratagem/'
       ]
     }).on('error', sass.logError))
     .pipe(gulp.dest('./dist/css'))
