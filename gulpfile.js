@@ -32,7 +32,7 @@ gulp.task('browserify', function () {
 // Compile sass
 gulp.task('sass', function () {
   // Generate _breakpoints.scss
-  gulp.src('./oddbaby.breakpoints.yml')
+  gulp.src('./*.breakpoints.yml')
     .pipe(drupalBreakpoints.ymlToScss())
     .pipe(rename('_breakpoints.scss'))
     .pipe(gulp.dest('./scss/utils'))
