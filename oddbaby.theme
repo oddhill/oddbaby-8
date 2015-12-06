@@ -1,0 +1,21 @@
+<?php
+/**
+ * Implements THEME_page_attachments_alter()
+ */
+function oddbaby_page_attachments_alter(&$page) {
+  // Get theme name
+  $theme_name = \Drupal::theme()->getActiveTheme()->getName();
+
+  // Get breakpoints from the theme
+  $breakpointManager = \Drupal::service('breakpoint.manager');
+  $breakpoints = $breakpointManager->getBreakpointsByGroup($theme_name);
+
+  // Attach the breakpoints to drupalSettings
+  $media_queries = array();
+  foreach ($breakpoints as $id => $breakpoint) {
+    $key = explode('.', $id)[1];
+    $media_queries[$key] = $breakpoint->getMediaQuery();
+  }
+
+  $page['#attached']['drupalSettings'][$theme_name]['breakpoints'] = $media_queries;
+}
