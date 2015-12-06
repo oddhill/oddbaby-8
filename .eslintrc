@@ -6,7 +6,8 @@
   "parser": "babel-eslint",
   "extends": "airbnb/base",
   "globals": {
-    "Drupal"
+    "Drupal": false,
+    "drupalSettings": false
   },
   "rules": {
     "comma-dangle": [2, "never"],
