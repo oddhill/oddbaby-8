@@ -4,17 +4,13 @@
 ## Usage
 Install dependencies
 ```
-npm install
-bower install
+$ npm install
 ```
 
-Gulp tasks:
+Watch files:
 ```
 // Watch .scss (scss-lint, sass) and .js (eslint, browserify)
 $ gulp watch
-
-// Convert svg files to png
-$ gulp svg2png
 ```
 
 ## Requirements
