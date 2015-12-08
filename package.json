@@ -17,11 +17,12 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.0.4",
     "gulp-scss-lint": "^0.3.3",
+    "napa": "^2.0.2",
     "vinyl-source-stream": "^1.1.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "cd node_modules && ln -nsf ../js/lib"
+    "postinstall": "napa && cd node_modules && ln -nsf ../js/lib"
   },
   "repository": {
     "type": "git",
