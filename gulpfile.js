@@ -9,6 +9,8 @@ var cssGlobbing = require('gulp-css-globbing')
 var source = require('vinyl-source-stream')
 var drupalBreakpoints = require('drupal-breakpoints-scss')
 var rename = require('gulp-rename')
+var uglify = require('gulp-uglify')
+var buffer = require('vinyl-buffer')
 
 // babel
 gulp.task('browserify', function () {
@@ -26,6 +28,8 @@ gulp.task('browserify', function () {
       this.emit('end')
     })
     .pipe(source('bundle.js'))
+    .pipe(buffer())
+    .pipe(uglify())
     .pipe(gulp.dest('./dist/js'))
 })
 
