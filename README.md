@@ -1,6 +1,11 @@
 # Odd baby
 > A starter theme for Drupal theming.
 
+## Install with Yeoman
+```
+$ yo odd:baby
+```
+
 ## Usage
 Install dependencies
 ```
