@@ -37,7 +37,6 @@
   },
   "homepage": "https://github.com/oddhill/oddbaby",
   "dependencies": {
-    "Modernizr": "https://modernizr.com/download/?csstransforms-csstransforms3d-csstransitions-svg-domprefixes-prefixes-setclasses-shiv-testallprops-testprop-teststyles-.zip",
     "Stratagem": "github:oddhill/stratagem",
     "bourbon": "^4.2.6",
     "bourbon-neat": "^1.7.2",
@@ -45,6 +44,6 @@
   },
   "browserify-shim": {
     "jquery": "global:jQuery",
-    "./node_modules/Modernizr/modernizr.custom.js": "Modernizr"
+    "modernizr": "global:Modernizr"
   }
 }

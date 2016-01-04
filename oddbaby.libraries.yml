@@ -10,3 +10,4 @@ global:
     - core/drupal
     - core/drupalSettings
     - core/normalize
+    - core/modernizr
