@@ -7,4 +7,5 @@ global:
     dist/js/bundle.js: {}
   dependencies:
     - core/jquery
+    - core/drupal
     - core/drupalSettings
