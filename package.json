@@ -41,8 +41,7 @@
     "Stratagem": "github:oddhill/stratagem",
     "bourbon": "^4.2.6",
     "bourbon-neat": "^1.7.2",
-    "enquire.js": "^2.1.1",
-    "normalize.css": "^3.0.3"
+    "enquire.js": "^2.1.1"
   },
   "browserify-shim": {
     "jquery": "global:jQuery",
