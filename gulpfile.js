@@ -62,8 +62,8 @@ gulp.task('scss-lint', function () {
     .pipe(scsslint())
 })
 
-// Jshint
-gulp.task('lint', function () {
+// Eslint
+gulp.task('eslint', function () {
   return gulp.src('./js/**/*.js')
     .pipe(eslint())
     .pipe(eslint.format())
@@ -71,8 +71,8 @@ gulp.task('lint', function () {
 
 // Watch .scss and .js
 gulp.task('watch', function () {
-  gulp.watch('./scss/**/*.scss', ['scss-lint', 'sass'])
-  gulp.watch('./js/**/*.js', ['lint', 'browserify'])
+  gulp.watch('scss/**/*.scss', ['scss-lint', 'sass'])
+  gulp.watch('js/**/*.js', ['eslint', 'browserify'])
 })
 
 // Set default task
