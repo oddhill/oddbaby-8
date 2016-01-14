@@ -9,6 +9,3 @@ regions:
 
 libraries:
   - oddbaby/global
-
-libraries-override:
-  core/modernizr: false
