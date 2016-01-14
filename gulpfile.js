@@ -3,6 +3,7 @@ const sass = require('gulp-sass');
 const eslint = require('gulp-eslint');
 const scsslint = require('gulp-scss-lint');
 const browserify = require('browserify');
+const watchify = require('watchify');
 const shim = require('browserify-shim');
 const babelify = require('babelify');
 const cssGlobbing = require('gulp-css-globbing');
@@ -11,26 +12,38 @@ const drupalBreakpoints = require('drupal-breakpoints-scss');
 const rename = require('gulp-rename');
 const uglify = require('gulp-uglify');
 const buffer = require('vinyl-buffer');
+const gutil = require('gulp-util');
+const cssnano = require('gulp-cssnano');
 
-// babel
-gulp.task('browserify', function () {
-  const b = browserify({
-    basedir: './js',
-    entries: './main.js'
-  });
+// Browserify
+const b = browserify({
+  basedir: './js',
+  entries: './main.js',
+  cache: {},
+  packageCache: {},
+  debug: true
+});
 
-  b.transform(babelify, {presets: ['es2015']});
-  b.transform(shim, { global: true });
+b.transform(babelify, { presets: ['es2015'] });
+b.transform(shim, { global: true });
 
+// Bundle browserify
+function bundle() {
   return b.bundle()
     .on('error', function (err) {
-      console.log(err.message);
-      this.emit('end');
+      gutil.log(gutil.colors.red('Browserify build error:\n') + err.message);
     })
     .pipe(source('bundle.js'))
+    .pipe(gulp.dest('./dist/js'))
     .pipe(buffer())
     .pipe(uglify())
+    .pipe(rename({ extname: '.min.js' }))
     .pipe(gulp.dest('./dist/js'));
+}
+
+// Browserify task
+gulp.task('browserify', function () {
+  return bundle();
 });
 
 // Compile sass
@@ -50,8 +63,12 @@ gulp.task('sass', function () {
         'node_modules/bourbon/app/assets/stylesheets/',
         'node_modules/bourbon-neat/app/assets/stylesheets/',
         'node_modules/Stratagem/'
-      ]
+      ],
+      sourceMapEmbed: true
     }).on('error', sass.logError))
+    .pipe(gulp.dest('./dist/css'))
+    .pipe(cssnano({ safe: true }))
+    .pipe(rename({ extname: '.min.css' }))
     .pipe(gulp.dest('./dist/css'));
 });
 
@@ -71,7 +88,14 @@ gulp.task('eslint', function () {
 // Watch .scss and .js
 gulp.task('watch', function () {
   gulp.watch('scss/**/*.scss', ['scss-lint', 'sass']);
-  gulp.watch('js/**/*.js', ['eslint', 'browserify']);
+  gulp.watch('js/**/*.js', ['eslint']);
+
+  b.plugin(watchify);
+  b.on('update', bundle);
+  b.on('log', function (msg) {
+    gutil.log('Browserify build - ' + msg);
+  });
+  bundle();
 });
 
 // Set default task
