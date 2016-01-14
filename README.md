@@ -26,7 +26,6 @@ $ gulp watch
 ## Includes
 * Bourbon
 * Neat
-* Modernizr - Support for csstransform 2D & 3D, svg touch & includes SHIV.
 
 ## License
 MIT © Odd Hill AB
