@@ -36,7 +36,7 @@ function bundle() {
     .pipe(source('bundle.js'))
     .pipe(gulp.dest('./dist/js'))
     .pipe(buffer())
-    .pipe(uglify())
+    .pipe(uglify({ preserveComments: 'license' }))
     .pipe(rename({ extname: '.min.js' }))
     .pipe(gulp.dest('./dist/js'));
 }
